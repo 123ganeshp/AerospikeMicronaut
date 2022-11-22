@@ -38,11 +38,11 @@ public class PersonController {
 
     }
     //@Transactional
-    @Put(value = "/update/{id}")
-    public String updatePerson(@Body Person person ,@PathVariable("id") int id ){
-       return employeeService.updatePerson(person, id);
-
-    }
+//    @Put(value = "/update/{id}")
+//    public String updatePerson(@Body Person person ,@PathVariable("id") int id ){
+//       return employeeService.updatePerson(person, id);
+//
+//    }
     @Delete(value = "/delete/{id}")
     public String deleteById(int id){
         return employeeService.deleteById(id);
