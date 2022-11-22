@@ -121,6 +121,7 @@ public class PersonRepositoryIml implements PersonRepository {
         producerProperties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
 
+//        KafkaProducer<Integer, String> kafkaProducer = new KafkaProducer(producerProperties);
         KafkaProducer<Integer, String> kafkaProducer = new KafkaProducer(producerProperties);
 
         ProducerRecord<Integer, String> record = new ProducerRecord<>(TOPIC,"Message-"+"Person Data Updated"+" "+person);
