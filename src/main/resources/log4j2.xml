@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding ="UTF-8"?>
+
+<Configuration status="WARN">
+    <Properties>
+        <Property name="filename">./logs</Property>
+    </Properties>
+
+    <Appenders>
+        <RollingFile name="file"
+                     fileName="${filename}/Initial.log"
+                     filePattern="${filename}/log-%d{yyyy-MM-dd----HH-mm-ss-SSS}.log">
+            <PatternLayout>
+                <pattern>%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</pattern>
+            </PatternLayout>
+            <SizeBasedTriggeringPolicy size="5 KB" />
+        </RollingFile>
+
+        <Console name="projectLog" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{HH:mm:ss:SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.restapi" level="info" additivity="false">
+            <AppenderRef ref="file" />
+            <AppenderRef ref="projectLog" />
+        </Logger>
+        <Root level="fatal">
+            <AppenderRef ref="projectLog" />
+            <AppenderRef ref="file" />
+        </Root>
+    </Loggers>
+</Configuration>
