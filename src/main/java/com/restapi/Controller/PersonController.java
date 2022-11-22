@@ -37,12 +37,12 @@ public class PersonController {
         return employeeService.getPersonById(id);
 
     }
-    //@Transactional
-//    @Put(value = "/update/{id}")
-//    public String updatePerson(@Body Person person ,@PathVariable("id") int id ){
-//       return employeeService.updatePerson(person, id);
-//
-//    }
+   // @Transactional
+    @Put(value = "/update/{id}")
+    public String updatePerson(@Body Person person ,@PathVariable("id") int id ){
+       return employeeService.updatePerson(person, id);
+
+    }
     @Delete(value = "/delete/{id}")
     public String deleteById(int id){
         return employeeService.deleteById(id);
